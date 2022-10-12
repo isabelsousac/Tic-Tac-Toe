@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="../jquery.js"></script>
+    <script src="home.js"></script>
+</head>
+<body>
+    <div class="home-container">
+        <header>
+            <div>
+                TIC TAC TOE
+            </div>
+        </header>
+        <div class="buttons-container">
+            <div>
+                <button id="play" class="clickable"><a id="game-link">PLAY</a></button>
+            </div>
+            <div class="game-size">
+                <select id="game-size-select" name="Game Size" required>
+                    <option value="" disabled selected hidden>GAME SIZE</option>
+                    <option value="EASY">3x3</option>
+                    <option value="MEDIUM">4x4</option>
+                    <option value="HARD">5x5</option>
+                  </select>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

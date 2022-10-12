@@ -30,7 +30,7 @@ function cellIndex(yIndex, xIndex) {
     }
 }
 
-function tictactoeFactory(gridSize = 3) {
+function tictactoeFactory(gridSize) {
     return {
         player1: playerFactory(possibleIcons.X_ICON), // after it can be passed by the dom, if other icons
         player2: playerFactory(possibleIcons.O_ICON),
