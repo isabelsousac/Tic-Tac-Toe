@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Caesar Dressing', cursive;
+}
+
+#game-name {
+    font-size: 5em;
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+#field {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    place-content: center;
+}
+
+.cell {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+}
