@@ -50,21 +50,6 @@ function updateHTML() {
     }
 }
 
-// function markCell() {
-//     const cellID = $(this).attr("id");
-//     const cellIndex = tictactoeGame.getChoosenCell(cellID);
-//     const chosenCell = tictactoeGame.field[cellIndex.y][cellIndex.x];
-    
-//     if (tictactoeGame.isCellFilled(chosenCell)) {
-//         return;
-//     }
-//     const currentPlayer = tictactoeGame.getPlayer();
-//     tictactoeGame.updateCell(chosenCell);
-//     updateHTML();
-
-//     checkEndGame()
-// }
-
 function getGridSize(gridSize) {
     return gridSizes[gridSize] || gridSizes.EASY;
 }
@@ -73,7 +58,6 @@ function addGameContainerCSS(gridSize, $gameContainer) {
     const gridHeight = $(window).height()
     const cellSize = ((gridHeight / gridSize) / 100 * 10);
     $gameContainer.css({
-        // "display": "grid",
         "grid-template-rows": `repeat(${gridSize}, ${cellSize}%)`,
         "grid-template-columns": `repeat(${gridSize}, ${cellSize}%)`,
         "place-content": "center"

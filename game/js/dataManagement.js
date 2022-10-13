@@ -1,17 +1,3 @@
-function checkEndGame() {
-    if (tictactoeGame.checkForDraw()) {
-        buildDrawEnd();
-        $(".cell").off("click", markCell);
-    }
-    if (tictactoeGame.checkForWin()) {
-        $(".cell").off("click", markCell);
-        buildWinEnd();
-    }
-    tictactoeGame.increaseMovementNumber();
-    $(".turn-icon").html(tictactoeGame.getPlayer().icon);
-}
-
-
 function matchHTMLCells() {
     const $cells = $(".cell");
     const tictactoeCells = tictactoeGame.field.flat();
@@ -36,4 +22,17 @@ function markCell() {
     updateHTML();
 
     checkEndGame()
+}
+
+function checkEndGame() {
+    if (tictactoeGame.checkForDraw()) {
+        buildDrawEnd();
+        $(".cell").off("click", markCell);
+    }
+    if (tictactoeGame.checkForWin()) {
+        $(".cell").off("click", markCell);
+        buildWinEnd();
+    }
+    tictactoeGame.increaseMovementNumber();
+    $(".turn-icon").html(tictactoeGame.getPlayer().icon);
 }
