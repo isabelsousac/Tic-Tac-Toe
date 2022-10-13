@@ -190,6 +190,10 @@ body {
     justify-content: center;
 }
 
+.end-icon > .player-icon {
+    width: auto;
+}
+
 .end-game.show p {
     font-size: 50px;
 }
@@ -252,13 +256,6 @@ body {
         align-items: center;
         justify-content: center;
         opacity: 0.7;
-    }
-    
-    .end-icon {
-        width: 30%;
-        height: 10%;
-        display: flex;
-        justify-content: center;
     }
     
     .end-game.show p {
