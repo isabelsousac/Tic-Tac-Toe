@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Amatic+SC:wght@700&display=swap');
 
 * {
     box-sizing: border-box;
-    font-family: 'Caesar Dressing', cursive;
+    font-family: 'Acme', sans-serif;
 }
 
 .cell {
-    border: 1px solid black;
+    border: 1px dashed black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,8 +14,25 @@
     background-color: rgb(132, 169, 140);
 }
 
+.cell.no-border-top {
+    border-top: none;
+}
+
+.cell.no-border-left {
+    border-left: none;
+}
+
+.cell.no-border-bottom {
+    border-bottom: none;
+}
+
+.cell.no-border-right {
+    border-right: none;
+}
+
 body {
-    background-color: rgb(53, 79, 82)
+    background-color: rgb(53, 79, 82);
+    min-height: 100%;
 }
 
 .container {
@@ -33,7 +50,7 @@ body {
     background-color: rgb(82, 121, 111);
     display: flex;
     flex-direction: row;
-    flex-grow: 0.5;
+    flex-grow: 0.3;
     justify-content: space-around;
     gap: 10%;
     border-radius: 15px;
@@ -53,15 +70,30 @@ body {
 
 .turn {
     display: flex;
+    flex-direction: column;
     width: 50%;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    align-self: end;
 }
 
-.turn img {
-    width: 50%;
+.turn-icon {
+    width: 40%;
     height: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.turn-icon img {
+    display: flex;
+    flex-grow: 0.3;
+}
+
+.turn p {
+    font-size: 200%;
+    flex-grow: 1;
 }
 
 .return-menu {
@@ -74,8 +106,8 @@ body {
 }
 
 .return-menu img {
-    width: 25%;
-    height: 25%;
+    width: 40%;
+    height: 40%;
 }
 
 .bottom-page {
@@ -83,26 +115,32 @@ body {
     background-color: rgb(82, 121, 111);
     display: flex;
     flex-direction: row;
-    flex-grow: 6;
+    flex-grow: 2;
     gap: 2%;
     border-radius: 10px;
+    height: min-content;
 }
 
 
 
 .grid-container {
-    width: 80%;
-    display: flex;
-    justify-content: center;
+    height: 70vw;
+    width: 70vw;
+    display: grid;
+    padding: 10px;
+    align-self: center;
 }
 
 .points-container {
-    width: 20%;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 2%;
-    align-items: center;
+    /* width: 20%; */
+    width: 20vw;
+    align-self: center;
+    display: flex;
+}
+
+.hide {
+    opacity: 0;
 }
 
 .points-container div {
@@ -118,7 +156,8 @@ body {
 }
 
 .points-container p {
-    font-size: 200%;
+    font-size: 150%;
+    color: #E3B448;
 }
 
 .player-icon {
@@ -126,11 +165,107 @@ body {
 }
 
 .end-game {
+    display: none;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: aquamarine;
+    background-color: rgb(132, 169, 140);
+}
+
+.end-game.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.end-icon {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.end-game.show p {
+    font-size: 50px;
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .bottom-page {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo img {
+        width: 50%;
+        height: 40%;
+    }
+
+    .return-menu img {
+        width: 60%;
+        height: 60%;
+    }
+
+    .turn p {
+        font-size: 150%;
+    }
+
+    turn-icon {
+        width: 40%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+
+    .points-container {
+        flex-direction: row;
+        display: flex;
+        width: 70%;
+        align-items: stretch;
+    }
+
+    .points-container img {
+        width: 30%;
+        height: 30%;
+    }
+
+    .points-container p {
+        font-size: 100%;
+    }
+
+    .grid-container {
+        height: 70vw;
+        width: 70vw;
+        align-self: center;
+    }
+
+    .end-game.show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.7;
+    }
+    
+    .end-icon {
+        width: 30%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .end-game.show p {
+        font-size: 20px;
+    }
+
+    .container {
+        height: 97vh;
+    }
 }

@@ -1,24 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Amatic+SC:wght@700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #CBD18F;
+    background-color: rgb(53, 79, 82);
 }
 
 .home-container {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 30em;
+    height: 100vh;
     justify-content: center;
 }
 
 header {
     font-family: 'Acme', sans-serif;
     font-size: 8em;
-    background-color: #E3B448;
-    color: #3A6B35;
+    background-color: rgb(132, 169, 140);;
+    color: rgb(82, 121, 111);
     width: 100%;
-    height: 3em;
+    height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,22 +36,26 @@ a {
 }
 
 button, select {
-    font-size: 1.2em;
+    font-size: 30px;
+    width: 200px;
+    height: 90px;
     font-family: 'Amatic SC', cursive;
-    background-color: #3A6B35;
+    background-color: rgb(82, 121, 111);
     color: #E3B448;
-    width: 10em;
-    height: 5em;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
+.play-container {
+  background-color: rgb(82, 121, 111);
+}
+
 .game-size select {
     text-align: center;
+    
 }
 
 .clickable {
-  font-weight: 200;
   letter-spacing: 1px;
   padding: 13px 20px 13px;
   outline: 0;
@@ -62,7 +70,7 @@ button, select {
 
 .clickable:after {
   content: "";
-  background-color: #3A6B35;
+  background-color: rgb(82, 121, 111);
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -85,9 +93,37 @@ button, select {
 
 .buttons-container {
     width: 100%;
-    height: 5em;
+    height: 6%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .home-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  header {
+    font-size: 400%;
+    width: 100%;
+  }
+
+  button, select {
+    font-size: 25px;
+    width: 150px;
+    height: 90px;
+    font-family: 'Amatic SC', cursive;
+    background-color: rgb(82, 121, 111);
+    color: #E3B448;
+    border-radius: 5px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 30px 60px -12px, rgb(0 0 0 / 30%) 0px 18px 36px -18px;
+  }
 }
