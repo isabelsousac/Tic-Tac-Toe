@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Caesar Dressing', cursive;
+}
+
+body {
+    background-color: brown;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: 1%;
+}
+
+.top-page {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0.5;
+    justify-content: space-around;
+    gap: 10%;
+}
+
+.logo {
+    display: flex;
+    background-color: black;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 50%;
+    height: 50%;
+}
+
+.turn {
+    display: flex;
+    background-color: black;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.turn img {
+    width: 50%;
+    height: 50%;
+}
+
+.return-menu {
+    background-color: beige;
+    display: flex;
+    flex-grow: 1;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.return-menu img {
+    width: 50%;
+    height: 50%;
+}
+
+.bottom-page {
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 6;
+    gap: 2%;
+}
+
+/* .grid-container-endgame {
+    display: fixed;
+    background-color: blueviolet;
+    opacity: 0.5%;
+
+    /* PROVAVEL QUE TENHA QUE MUDAR AQUI 
+} 
+*/
+
+.grid-container {
+    width: 80%;
+    background-color: darkgreen;
+    display: flex;
+    justify-content: center;
+}
+
+.points-container {
+    width: 20%;
+    background-color: darkgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2%;
+    align-items: center;
+}
+
+.points-container div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+}
+
+.points-container img {
+    width: 25%;
+    height: 25%;
+}
+
+.points-container p {
+    font-size: 200%;
+}
