@@ -15,7 +15,7 @@ Click on the cell you would like to make your move to place your icon.
 
 
 ## You can play here
-[Play]()
+[Play](https://isabelsousac.github.io/Tic-Tac-Toe-Project0/)
 
 ## Librarie used
 * [jQuery](https://jquery.com/)
