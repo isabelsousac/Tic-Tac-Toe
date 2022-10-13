@@ -1,3 +1,4 @@
+
 function cellFactory() {
     return {
         icon: possibleIcons.NOT_PLAYED_ICON,

@@ -24,3 +24,4 @@ Click on the cell you would like to make your move to place your icon.
 ## Special Thanks
 * Thank you to [The Blade](https://github.com/wofockham).
 * Thank you to [Loden Gendun](https://github.com/Tenzang).
+* Thank you to [Gissell Bustos](https://github.com/Gissell10).

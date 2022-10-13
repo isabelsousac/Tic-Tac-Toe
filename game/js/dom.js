@@ -1,20 +1,5 @@
 let tictactoeGame = undefined;
 
-function checkEndGame() {
-    if (tictactoeGame.checkForDraw()) {
-        console.log(possibleEnds.DRAW);
-        buildDrawEnd();
-        $(".cell").off("click", markCell);
-    }
-    if (tictactoeGame.checkForWin()) {
-        console.log(possibleEnds.WIN);
-        $(".cell").off("click", markCell);
-        buildWinEnd();
-    }
-    tictactoeGame.increaseMovementNumber();
-    $(".turn-icon").html(tictactoeGame.getPlayer().icon);
-}
-
 function clearField() {
     $(".end-game").removeClass("show");
     $(".turn").removeClass("hide");
@@ -65,31 +50,20 @@ function updateHTML() {
     }
 }
 
-function matchHTMLCells() {
-    const $cells = $(".cell");
-    const tictactoeCells = tictactoeGame.field.flat();
-    let i = 0;
-    $cells.each(function() {
-        const cellID = $(this).attr("id");
-        tictactoeCells[i].htmlID = cellID;
-        i++;
-    })
-}
-
-function markCell() {
-    const cellID = $(this).attr("id");
-    const cellIndex = tictactoeGame.getChoosenCell(cellID);
-    const chosenCell = tictactoeGame.field[cellIndex.y][cellIndex.x];
+// function markCell() {
+//     const cellID = $(this).attr("id");
+//     const cellIndex = tictactoeGame.getChoosenCell(cellID);
+//     const chosenCell = tictactoeGame.field[cellIndex.y][cellIndex.x];
     
-    if (tictactoeGame.isCellFilled(chosenCell)) {
-        return;
-    }
-    const currentPlayer = tictactoeGame.getPlayer();
-    tictactoeGame.updateCell(chosenCell);
-    updateHTML();
+//     if (tictactoeGame.isCellFilled(chosenCell)) {
+//         return;
+//     }
+//     const currentPlayer = tictactoeGame.getPlayer();
+//     tictactoeGame.updateCell(chosenCell);
+//     updateHTML();
 
-    checkEndGame()
-}
+//     checkEndGame()
+// }
 
 function getGridSize(gridSize) {
     return gridSizes[gridSize] || gridSizes.EASY;
