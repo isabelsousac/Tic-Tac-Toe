@@ -3,6 +3,7 @@ let tictactoeGame = undefined;
 function clearField() {
     $(".end-game").removeClass("show");
     $(".turn").removeClass("hide");
+    $(".turn-icon").html(tictactoeGame.getPlayer().icon);
     tictactoeGame.clearField();
     matchHTMLCells();
     updateHTML();
@@ -12,7 +13,6 @@ function clearField() {
 function updatePoints($container) {
     const previousPoint = Number($container.html());
     $container.html(previousPoint + 1);
-    $(".turn-icon").html(tictactoeGame.getPlayer().icon);
 }
 
 function buildWinEnd() {
@@ -48,6 +48,7 @@ function updateHTML() {
             $(`#${cell.htmlID}`).html(cell.icon);
         }
     }
+    $(".turn-icon").html(tictactoeGame.getPlayer().icon);
 }
 
 function getGridSize(gridSize) {

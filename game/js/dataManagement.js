@@ -19,19 +19,21 @@ function markCell() {
     }
     const currentPlayer = tictactoeGame.getPlayer();
     tictactoeGame.updateCell(chosenCell);
+    
     updateHTML();
-
     checkEndGame()
 }
 
 function checkEndGame() {
     if (tictactoeGame.checkForDraw()) {
-        buildDrawEnd();
         $(".cell").off("click", markCell);
+        buildDrawEnd();
+        return;
     }
     if (tictactoeGame.checkForWin()) {
-        $(".cell").off("click", markCell);
         buildWinEnd();
+        $(".cell").off("click", markCell);
+        return;
     }
     tictactoeGame.increaseMovementNumber();
     $(".turn-icon").html(tictactoeGame.getPlayer().icon);

@@ -31,13 +31,17 @@ function cellIndex(yIndex, xIndex) {
     }
 }
 
+function generateRandomNumber() {
+    console.log(Math.floor((Math.random() * 2)));
+    return Math.floor((Math.random() * 2));
+}
+
 function tictactoeFactory(gridSize) {
     return {
         player1: playerFactory(possibleIcons.X_ICON), // after it can be passed by the dom, if other icons
         player2: playerFactory(possibleIcons.O_ICON),
         field: buildField(gridSize),
-        maxMovementsNumber: gridSize * gridSize,
-        currentMovementNumber: 1,
+        currentMovementNumber: generateRandomNumber(),
 
         getChoosenCell(htmlID) {
             let yIndex;
@@ -127,7 +131,7 @@ function tictactoeFactory(gridSize) {
         },
         clearField() {
             this.field = buildField(gridSize);
-            this.currentMovementNumber = 1;
+            this.currentMovementNumber = generateRandomNumber();
         }
     }
 }
