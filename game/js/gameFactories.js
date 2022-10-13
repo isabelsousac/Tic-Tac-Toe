@@ -60,7 +60,8 @@ function tictactoeFactory(gridSize) {
             }
             return false;
         },
-        checkForWin(player) {
+        checkForWin() {
+            const player = this.getPlayer();
             // rows/xAxis
             for (let i = 0; i < gridSize; i++) {
                 const hasPlayerWon = this.field[i].every(cell => cell.icon === player.icon);
@@ -104,30 +105,8 @@ function tictactoeFactory(gridSize) {
             return false;
         },
 
-        updateField(htmlID) {
-            const currentPlayer = this.getPlayer();
-            const cellIndex = this.getChoosenCell(htmlID);
-            const chosenCell = this.field[cellIndex.y][cellIndex.x];
-
-            if (this.isCellFilled(chosenCell)) {
-                console.log("this cell is filled!");
-                return;
-            }
-            this.updateCell(currentPlayer, chosenCell);
-            if (this.checkForDraw()) {
-                console.log(possibleEnds.DRAW);
-                return;
-            }
-            if (this.checkForWin(currentPlayer)) {
-                currentPlayer.hasWon = true;
-                console.log(possibleEnds.WIN);
-                return;
-            }
-            this.increaseMovementNumber();
-        },
-
-        updateCell(player, cell) {
-            cell.icon = player.icon;
+        updateCell(cell) {
+            cell.icon = this.getPlayer().icon;
         },
 
         isCellFilled(cell) {
@@ -144,6 +123,10 @@ function tictactoeFactory(gridSize) {
 
         increaseMovementNumber() {
             this.currentMovementNumber++;
+        },
+        clearField() {
+            this.field = buildField(gridSize);
+            this.currentMovementNumber = 1;
         }
     }
 }

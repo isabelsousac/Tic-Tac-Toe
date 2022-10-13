@@ -1,5 +1,25 @@
 let tictactoeGame = undefined;
 
+function checkEndGame() {
+    if (tictactoeGame.checkForDraw()) {
+        console.log(possibleEnds.DRAW);
+        tictactoeGame.clearField();
+        //matchHTMLCells();
+        //updateHTML()
+        return;
+    }
+
+    if (tictactoeGame.checkForWin()) {
+        //tictactoeGame.currentPlayer.hasWon = true;
+        console.log(possibleEnds.WIN);
+        tictactoeGame.clearField();
+        //matchHTMLCells();
+        //updateHTML()
+        return;
+    }
+    tictactoeGame.increaseMovementNumber();
+}
+
 function updateHTML() {
     for (let y = 0; y < tictactoeGame.field.length; y++) {
         for (let x = 0; x < tictactoeGame.field[y].length; x++) {
@@ -22,8 +42,17 @@ function matchHTMLCells() {
 
 function markCell() {
     const cellID = $(this).attr("id");
-    tictactoeGame.updateField(cellID);
+    const cellIndex = tictactoeGame.getChoosenCell(cellID);
+    const chosenCell = tictactoeGame.field[cellIndex.y][cellIndex.x];
+    
+    if (tictactoeGame.isCellFilled(chosenCell)) {
+        return;
+    }
+    const currentPlayer = tictactoeGame.getPlayer();
+    tictactoeGame.updateCell(chosenCell);
     updateHTML();
+
+    checkEndGame()
 }
 
 function getGridSize(gridSize) {
@@ -62,6 +91,7 @@ $(document).ready(function() {
     buildHTMLGame(gridSize);
 
     matchHTMLCells();
+
     $(".cell").on("click", markCell);
     updateHTML();
 });
