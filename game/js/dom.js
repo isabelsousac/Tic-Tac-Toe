@@ -3,21 +3,53 @@ let tictactoeGame = undefined;
 function checkEndGame() {
     if (tictactoeGame.checkForDraw()) {
         console.log(possibleEnds.DRAW);
-        tictactoeGame.clearField();
-        //matchHTMLCells();
-        //updateHTML()
-        return;
+        buildDrawEnd();
     }
-
     if (tictactoeGame.checkForWin()) {
-        //tictactoeGame.currentPlayer.hasWon = true;
         console.log(possibleEnds.WIN);
-        tictactoeGame.clearField();
-        //matchHTMLCells();
-        //updateHTML()
-        return;
+        buildWinEnd();
     }
     tictactoeGame.increaseMovementNumber();
+}
+
+function clearField() {
+    tictactoeGame.clearField();
+    matchHTMLCells();
+    updateHTML();
+}
+
+function updatePoints($container) {
+    const previousPoint = Number($container.html());
+    $container.html(previousPoint + 1);
+}
+
+function buildWinEnd() {
+    const winnerPlayer = tictactoeGame.getPlayer();
+
+    const $winEndGameDiv = $(`<div class=end-game">`);
+    ($(`<p>YAY</p>`)).appendTo($winEndGameDiv);
+    ($(winnerPlayer.icon)).appendTo($winEndGameDiv);
+    $("bottom-page").prepend($winEndGameDiv);
+
+    if (winnerPlayer.icon === possibleIcons.X_ICON) {
+        updatePoints($(".xPoints p"));
+    } else {
+        updatePoints($(".oPoints p"));
+    }
+
+    setTimeout(clearField, 5000);
+    $winEndGameDiv.remove();
+}
+
+function buildDrawEnd() {
+    const $drawEndGameDiv = $(`<div class="end-game">`);
+    $("<p>It's a draw</p>").appendTo($drawEndGameDiv);
+    $(`<img src="../images/draw.png">`).appendTo($drawEndGameDiv);
+    $("bottom-page").prepend($drawEndGameDiv);
+
+    updatePoints($(".draw p"))
+    setTimeout(clearField, 5000);
+    $drawEndGameDiv.remove();
 }
 
 function updateHTML() {
@@ -60,19 +92,18 @@ function getGridSize(gridSize) {
 }
 
 function addGameContainerCSS(gridSize, $gameContainer) {
-    const windowHeigth = $(window).height();
-    const gameNameHeigth = $("#game-name").height() + parseInt($("#game-name").css("margin"));
-    const cellSize = (windowHeigth - gameNameHeigth) / gridSize;
+    const gridHeight = $gameContainer.height();
+    const cellSize = ((gridHeight / gridSize) / 100 * 10);
     $gameContainer.css({
         "display": "grid",
-        "grid-template-rows": `repeat(${gridSize}, ${cellSize}px)`,
-        "grid-template-columns": `repeat(${gridSize}, ${cellSize}px)`,
+        "grid-template-rows": `repeat(${gridSize}, ${cellSize}%)`,
+        "grid-template-columns": `repeat(${gridSize}, ${cellSize}%)`,
         "place-content": "center"
     })
 }
 
 function buildHTMLGame(gridSize) {
-    const $gameContainer = $("#game-container");
+    const $gameContainer = $(".grid-container");
     for (let y = 0; y < gridSize; y++) {
         for (let x = 0; x < gridSize; x++) {
             const $newDiv = $(`<div class="cell" id="${y}x${x}">`);
@@ -93,5 +124,4 @@ $(document).ready(function() {
     matchHTMLCells();
 
     $(".cell").on("click", markCell);
-    updateHTML();
 });

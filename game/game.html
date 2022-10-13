@@ -11,10 +11,33 @@
     <script src="js/dom.js"></script>
 </head>
 <body>
-    <header>
-        <div id="logo"><img src="../images/logo.png"></div>
-    </header>
-    <div id="game-name">TIC TAC TOE</div>
-    <div id="game-container"></div>
+    <div class="container"> 
+        <header class="top-page">
+            <div class="logo">
+                <img src="../images/logo.png">
+            </div>
+            <div class="turn"></div>
+            <div class="return-menu">
+                <a href="../home/home.html"><img src="../images/return.png"></a>
+            </div>
+        </header>
+        <div class="bottom-page">
+            <div class="grid-container"></div>
+            <div class="points-container">
+                <div class="xPoints">
+                    <img src="../images/xIcon.png">
+                    <p>0</p>
+                </div>
+                <div class="oPoints">
+                    <img src="../images/oIcon.png">
+                    <p>0</p>
+                </div>
+                <div class="draw">
+                    <img src="../images/draw.png">
+                    <p>0</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
