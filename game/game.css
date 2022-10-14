@@ -45,6 +45,7 @@ body {
     border-radius: 10px;
     width: 90vw;
     margin: 0 auto;
+    padding-top: 10px;
 }
 
 .top-page {
@@ -56,6 +57,7 @@ body {
     gap: 10%;
     border-radius: 15px;
     align-items: center;
+    padding-top: 20px;
 }
 
 .logo {
@@ -96,7 +98,7 @@ body {
 .turn p {
     font-size: 200%;
     flex-grow: 1;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .return-menu {
