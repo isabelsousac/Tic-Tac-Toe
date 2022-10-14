@@ -33,6 +33,7 @@
 body {
     background-color: rgb(53, 79, 82);
     min-height: 100%;
+    overflow-y: hidden;
 }
 
 .container {
@@ -54,6 +55,7 @@ body {
     justify-content: space-around;
     gap: 10%;
     border-radius: 15px;
+    align-items: center;
 }
 
 .logo {
@@ -94,6 +96,7 @@ body {
 .turn p {
     font-size: 200%;
     flex-grow: 1;
+    margin-bottom: 0;
 }
 
 .return-menu {
